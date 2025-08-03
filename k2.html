@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page 2</title>
+  <style>
+    body {
+      margin: 0;
+      background: hotpink;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .glow-text {
+      font-size: 50px;
+      color: white;
+      text-shadow: 0 0 20px yellow, 0 0 40px orange;
+      animation: zigzag 3s infinite ease-in-out;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    @keyframes zigzag {
+      0% { transform: translateX(0px); }
+      25% { transform: translateX(-20px); }
+      50% { transform: translateX(20px); }
+      75% { transform: translateX(-10px); }
+      100% { transform: translateX(0px); }
+    }
+
+    .next-btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 15px 40px;
+      font-size: 22px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 10px white;
+    }
+
+    .next-btn:hover {
+      background-color: white;
+      color: black;
+      box-shadow: 0 0 20px yellow;
+    }
+
+    .input-box {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    input[type="text"] {
+      width: 60%;
+      padding: 15px;
+      font-size: 20px;
+      border-radius: 10px;
+      border: 2px solid white;
+      outline: none;
+      box-shadow: 0 0 10px white;
+    }
+
+    input::placeholder {
+      color: #aaa;
+      font-style: italic;
+    }
+
+    .kiss {
+      position: absolute;
+      font-size: 3rem;
+      animation: floatKiss 4s ease-in-out forwards;
+      pointer-events: none;
+      color: pink;
+      text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
+    }
+
+    @keyframes floatKiss {
+      0% {
+        transform: scale(0.8);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-150px) scale(1.5);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-400px) scale(1);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow-text" style="background-color: yellowgreen;">KAISI HO BIRTHDAY GIRL</div>
+
+  <div class="input-box">
+    <input type="text" placeholder="Type Here" />
+  </div>
+
+  <div style="text-align: center;">
+    <a href="k3.html">
+    <button class="next-btn">NEXT</button>
+    </a>
+  </div>
+
+  <script>
+    // Create random kiss emoji
+    setInterval(() => {
+      const kiss = document.createElement("div");
+      kiss.className = "kiss";
+      kiss.innerText = "💋";
+
+      const posX = Math.random() * window.innerWidth;
+      const posY = Math.random() * window.innerHeight;
+
+      kiss.style.left = `${posX}px`;
+      kiss.style.top = `${posY}px`;
+
+      document.body.appendChild(kiss);
+      setTimeout(() => kiss.remove(), 1000);
+    }, 300);
+  </script>
+</body>
+</html>

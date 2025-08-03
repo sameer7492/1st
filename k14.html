@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Forever Story</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0f0f0f;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+    }
+
+    /* Rain effect using animation */
+    .rain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .drop {
+      position: absolute;
+      width: 2px;
+      height: 15px;
+      background: rgba(255, 255, 255, 0.3);
+      bottom: 100%;
+      animation: rainFall linear infinite;
+    }
+
+    @keyframes rainFall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    .text-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 800px;
+      height: 70vh;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      overflow-y: auto;
+      z-index: 2;
+    }
+
+    .text-box::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .text-box::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+    }
+
+    .text-box h1 {
+      color: #ff4081;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .text-box h4 {
+      color: yellow;
+      text-align: center;
+      margin-bottom: 20px;
+    } 
+    .text-box h2{
+      color: skyblue;
+      text-align: center;
+    }
+    .text-box p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="rain" id="rain-container"></div>
+
+  <div class="text-box">
+    <h1> Happy Birthday Mera Betu❤️(UPP)</h1>
+    <p>
+      Aap ha bole ho tbhi ye page open hua h, Mera pyar aapse tha, hai aur rhega bina kisi ummid ke aur bina sart ke humresa rhega <br>
+      Aap na bhi khti to bhi mein ye sb likhta aur aapse ye sb kahta kyuki mein aapse tb bhi pyar krta hu jb aap khud se bhi krna bhool jye ho lekin mein nhi <br>
+      Mujhe nhi pta humre riste me age kya hoga lekin jo bhi hoga mein hr vkt aapke age khada miluga. Pta h jb aapko pahli br dekha tha us vkt aapko hi nhi blki mein aapni jine ka ek ummid ko dekh rha tha jo bs age chli ja rhi thi piche mud ke mujhe dekha bhi nhi.<br>
+      Humre rista me kbhi hasna, kbhi rona, kbhi roothna, kbhi mnna, kbhi gltfamiya, to kbhi kbhi chhoti-chhoti batye pr ladaiho jna, lekin humne ek dusre ka hath nhi chhoda balki aur majboti se pdke hai ek dusre ko. Syd esi ko bharosa pyar kahte h jah kbhi ladai to dusre hi pal usse pyar ek dusre kelie.<br>
+      Mein jnta hu chahe kuch bhi ho jye aap aaj bhi sath ho,kal bhi thi aur age bhi rhoge. Humra rista bs ek couple ki trh bilkul nhi h, humra rista rk roshni kiran ki jaisa h jah jah jyega ya padega vah vah ujjla kr dega. Ek aisa rista jo aaj ki duniya me pavitr aur bharose se bhara hua h. Pta h yr mujhe aapke sarir se pyar hua hi nhi kbhi, aapke andr jo ek chhota komal dil h bache ki trh usse hua h   
+    </p>
+    <h4>
+      Aap humesa khus rhiye, meri bhi umr aapko lg jye.
+    </h4>
+    <h2>
+      LOVE YOU BACHA💖
+    </h2>
+  </div>
+
+  <script>
+    // Create multiple raindrops
+    const rainContainer = document.getElementById('rain-container');
+    const dropCount = 150;
+
+    for (let i = 0; i < dropCount; i++) {
+      const drop = document.createElement('div');
+      drop.className = 'drop';
+      drop.style.left = Math.random() * 100 + 'vw';
+      drop.style.animationDuration = (0.5 + Math.random()) + 's';
+      drop.style.animationDelay = Math.random() * 5 + 's';
+      rainContainer.appendChild(drop);
+    }
+  </script>
+
+</body>
+</html>

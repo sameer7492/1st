@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Relationship Questions</title>
+  <style>
+    body {
+      background: lightgoldenrodyellow;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      color: #4b2e2e;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .question-box {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .question-box.active {
+      display: flex;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: orangered;
+      text-shadow: 0 0 8px orange, 0 0 12px lightgoldenrodyellows;
+
+    }
+
+
+    input[type="text"] {
+      padding: 12px;
+      width: 280px;
+      font-size: 18px;
+      border: 2px solid #d81b60;
+      border-radius: 8px;
+      color: #5c4033;
+      background-color: #fffaf0;
+      outline: none;
+      text-align: center;
+      box-shadow: 0 0 8px #ffb6c1;
+      color: orangered;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 25px;
+      font-size: 18px;
+      background-color: #ff4081;
+      border: none;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      box-shadow: 0 0 10px #ffb6c1;
+    }
+
+    button:hover {
+      background-color: yellow;
+      color: black;
+      box-shadow: 0 0 15px orange;
+    }
+
+    .error {
+      color: red;
+      margin-top: 5px;
+      font-weight: bold;
+    }
+
+    .success-message {
+      font-size: 20px;
+      color: green;
+      margin-top: 20px;
+      text-shadow: 0 0 5px lightgreen;
+    }
+
+    #final-next-btn {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Question 1 -->
+  <div id="q1" class="question-box active">
+    <h1>1. Our First Meeting Place</h1>
+    <input type="text" id="answer1" placeholder="Type here..." />
+    <button onclick="checkAnswer(1)">NEXT</button>
+    <div id="error1" class="error"></div>
+  </div>
+
+  <!-- Question 2 -->
+  <div id="q2" class="question-box">
+    <h1>2. After Relationship, First Meeting Place</h1>
+    <input type="text" id="answer2" placeholder="Type here..." />
+    <button onclick="checkAnswer(2)">NEXT</button>
+    <div id="error2" class="error"></div>
+  </div>
+
+  <!-- Question 3 -->
+  <div id="q3" class="question-box">
+    <h1>3. On Which Date You Said "I Love You"</h1>
+    <input type="text" id="answer3" placeholder="Type here..." />
+    <button onclick="checkAnswer(3)">SUBMIT</button>
+    <div id="error3" class="error"></div>
+  </div>
+
+  <!-- Success Message -->
+  <div id="success" class="success-message"></div>
+
+  <!-- Final Button -->
+  <a href="k12.html">
+  <button id="final-next-btn">Go to Next Page</button>
+  </a>
+  <script>
+    const correctAnswers = {
+      1: ["petariyapur"],
+      2: ["ambe", "ambe shop", "ambe sweets", "ambe sweet"],
+      3: ["26january", "26", "26 january"]
+    };
+
+    function checkAnswer(qNum) {
+      const input = document.getElementById(`answer${qNum}`).value.trim().toLowerCase();
+      const errorBox = document.getElementById(`error${qNum}`);
+
+      if (correctAnswers[qNum].includes(input)) {
+        errorBox.textContent = "";
+        document.getElementById(`q${qNum}`).classList.remove("active");
+
+        const nextQ = document.getElementById(`q${qNum + 1}`);
+        if (nextQ) {
+          nextQ.classList.add("active");
+        } else {
+          document.getElementById("success").textContent = "🎉 All Answers Are Correct!";
+          document.getElementById("final-next-btn").style.display = "inline-block";
+        }
+      } else {
+        errorBox.textContent = "Try Again!";
+      }
+    }
+  </script>
+
+</body>
+</html>
